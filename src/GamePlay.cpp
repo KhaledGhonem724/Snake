@@ -3,6 +3,7 @@
 #include <SFML/Window/Event.hpp>
 #include <stdlib.h>
 #include <time.h>
+#include <PauseGame.hpp>
 GamePlay::GamePlay(std::shared_ptr<Context>& context): m_context(context)
 , m_snakeDirection({20.f,0.f}) ,m_elapseTime(sf::Time::Zero)
 {
@@ -72,6 +73,11 @@ void GamePlay::ProcessInput(){
             case sf::Keyboard::Right :// if the button is the downward arrow
             {
                 newDirection={20.f,0.f};
+                break;
+            }
+            case sf::Keyboard::Escape :// if the button is the downward arrow
+            {
+                m_context->m_states->Add(std::make_unique<PauseGame>(m_context));
                 break;
             }
             default:// else
