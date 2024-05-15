@@ -8,6 +8,7 @@
 
 #include "Game.hpp"
 #include "State.hpp"
+#include "Snake.hpp"
 class GamePlay : public Engine::State
 {
 private:
@@ -15,8 +16,9 @@ private:
     sf::Sprite m_grass;
     sf::Sprite m_food;
     std::array<sf::Sprite,4> m_walls;
-
-    // todo snake
+    Snake m_snake;
+    sf::Vector2f m_snakeDirection;
+    sf::Time m_elapseTime;
     
 public:
     GamePlay(std::shared_ptr<Context>& context);
