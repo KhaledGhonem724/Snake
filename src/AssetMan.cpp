@@ -7,7 +7,7 @@ Engine::AssetMan::AssetMan() {
 Engine::AssetMan::~AssetMan() {
 
 }
-void Engine::AssetMan::AddTesture(int id,const std::string& filePath,bool isRepeated){
+void Engine::AssetMan::AddTexture(int id,const std::string& filePath,bool isRepeated){
     auto texture = std::make_unique<sf::Texture>();
     if (texture->loadFromFile(filePath))// if loading is done succussfully 
     {

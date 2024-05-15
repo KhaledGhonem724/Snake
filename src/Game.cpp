@@ -1,14 +1,15 @@
+// this is the main class of the game in which the main loop occures
 #include "Game.hpp"
 #include "MainMenu.hpp"
 #include <SFML/Graphics/CircleShape.hpp>
 
 Game::Game() : m_context(std::make_shared<Context>())
 {
-    m_context->m_window->create(sf::VideoMode(1280, 720), "SFML works!",sf::Style::Close);
+    // make a window 
     // we used Close style so the game can't be maximized 
+    m_context->m_window->create(sf::VideoMode(1280, 720), "SFML works!",sf::Style::Close);
+    // add the main menu as the first state (screen)
     m_context->m_states->Add(std::make_unique<MainMenu>(m_context));
-    //todo :
-    // add first state to m_states
 }
 
 Game::~Game() {
@@ -32,10 +33,6 @@ void Game::Run()
             m_context->m_states->GetCurrent()->ProcessInput();
             m_context->m_states->GetCurrent()->Update(TIME_PER_FRAME);
             m_context->m_states->GetCurrent()->Draw();
-            
-
-
-
         }        
 
     }

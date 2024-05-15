@@ -14,7 +14,7 @@ private:
 public:
     AssetMan();
     ~AssetMan();
-    void AddTesture(int id,const std::string& filePath,bool isRepeated);
+    void AddTexture(int id,const std::string& filePath,bool isRepeated=false);
     // isRepeated : if the texture will be repeated to fill the mindow
     void AddFont(int id,const std::string& filePath);
     const sf::Texture &GetTexture(int id)const;
