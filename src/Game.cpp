@@ -7,7 +7,7 @@ Game::Game() : m_context(std::make_shared<Context>())
 {
     // make a window 
     // we used Close style so the game can't be maximized 
-    m_context->m_window->create(sf::VideoMode(1280, 720), "SFML works!",sf::Style::Close);
+    m_context->m_window->create(sf::VideoMode(1280, 720), "Snake Game",sf::Style::Close);
     // add the main menu as the first state (screen)
     m_context->m_states->Add(std::make_unique<MainMenu>(m_context));
 }
@@ -18,9 +18,8 @@ Game::~Game() {
 
 void Game::Run()
 {
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Red);
     sf::Clock clock;// the clock start here 
+    
     sf::Time timeSinceLastFrame=sf::Time::Zero;
     while (m_context->m_window->isOpen())
     {

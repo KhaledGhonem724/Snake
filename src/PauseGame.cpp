@@ -11,7 +11,6 @@ PauseGame::~PauseGame() {
 }
 void PauseGame::Init()
 {
-    m_context->m_assets->AddFont(MAIN_FONT,"assets/fonts/PermanentMarker-Regular.ttf");
     // design the Title of the game main menu
     m_pauseGameTitle.setFont(m_context->m_assets->GetFont(MAIN_FONT));
     m_pauseGameTitle.setString("Paused");

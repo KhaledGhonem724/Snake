@@ -15,7 +15,6 @@ GameOver::~GameOver() {
 }
 void GameOver::Init()
 {
-    m_context->m_assets->AddFont(MAIN_FONT,"assets/fonts/PermanentMarker-Regular.ttf");
     // design the Title of the game main menu
     m_gameOverTitle.setFont(m_context->m_assets->GetFont(MAIN_FONT));
     m_gameOverTitle.setString("Game Over");

@@ -1,8 +1,10 @@
 #include "Snake.hpp"
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
-Snake::Snake() : m_body(std::list<sf::Sprite>(4))
+Snake::Snake() 
 {
+    defaultSize=4;
+    m_body=std::list<sf::Sprite>(defaultSize);
     m_head=--m_body.end();
     m_tail=m_body.begin();
 }
@@ -35,6 +37,16 @@ bool Snake::IsOn(const sf::Sprite& other)const
     // intersects compair between the GlobalBounds of it's oblect and the parameter object
     return other.getGlobalBounds().intersects(m_head->getGlobalBounds());
 }
+bool Snake::IsOnSelf()const {
+    for (auto piece=m_body.begin() ;piece!=m_body.end();piece++)
+    {
+        if (piece!=m_head&&IsOn(*piece))
+        {
+            return true;
+        }
+    }
+    return false;
+}
 void Snake::Grow(const sf::Vector2f& direction){
     sf::Sprite newPiese;
     newPiese.setTexture(*(m_body.begin()->getTexture()));
@@ -49,4 +61,7 @@ void Snake::draw(sf::RenderTarget& target,sf::RenderStates states)const
     {
         target.draw(piece);
     }
+}
+int Snake::getGroth(){
+    return m_body.size()-defaultSize;
 }

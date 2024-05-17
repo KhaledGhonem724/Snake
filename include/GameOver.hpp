@@ -4,8 +4,6 @@
 #include <SFML/Graphics/Text.hpp>
 
 #include <map>
-//#include <pair>
-
 
 #include "State.hpp"
 #include "Game.hpp"

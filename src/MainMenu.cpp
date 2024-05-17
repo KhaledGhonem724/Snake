@@ -31,6 +31,7 @@ MainMenu::MainMenu(std::shared_ptr<Context>& context) : m_context(context)
     selected=mainMenuButtons.begin();
 }
 
+
 MainMenu::~MainMenu() {
 
 }
@@ -181,7 +182,6 @@ void MainMenu::Draw()
     m_context->m_window->clear(sf::Color(50,50,50));
     // display the menu title
     m_context->m_window->draw(m_gameTitle);
-
 
     std::map<int ,std::pair< std::pair<std::string,bool> ,sf::Text > >::iterator i=mainMenuButtons.begin();
     // iterate over the map to and display  all options 

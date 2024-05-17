@@ -20,12 +20,7 @@ void Engine::StateMan::ProcessStateChange(){
     if ( m_remove && !m_stateStack.empty() )
     {
         m_stateStack.pop();
-        if (!m_stateStack.empty())
-        {
-            m_stateStack.top()->Start();
-        }
         m_remove=false;
-        
     }
     if ( m_add )
     {
@@ -34,13 +29,8 @@ void Engine::StateMan::ProcessStateChange(){
             m_stateStack.pop();
             m_replace=false;
         }
-        if (!m_stateStack.empty())
-        {
-            m_stateStack.top()->Pause();
-        }
         m_stateStack.push(std::move(m_newState));
         m_stateStack.top()->Init();
-        m_stateStack.top()->Start();
         m_add=false;
     }
     
