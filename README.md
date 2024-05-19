@@ -31,3 +31,14 @@ GameOver - all
 stop - review 
 
 Task managment - don't forget assetMan.cpp Game.cpp
+
+
+
+
+Tasks 
+mustafa :
+GamePlay , PauseGame
+Geny :
+MainMenu , GameOver
+Khaled :
+Gamelogic , snake

@@ -19,7 +19,6 @@ Game::~Game() {
 void Game::Run()
 {
     sf::Clock clock;// the clock start here 
-    
     sf::Time timeSinceLastFrame=sf::Time::Zero;
     while (m_context->m_window->isOpen())
     {
@@ -32,7 +31,6 @@ void Game::Run()
             m_context->m_states->GetCurrent()->ProcessInput();
             m_context->m_states->GetCurrent()->Update(TIME_PER_FRAME);
             m_context->m_states->GetCurrent()->Draw();
-        }        
-
+        }
     }
 }
